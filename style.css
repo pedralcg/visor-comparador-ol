@@ -1,0 +1,499 @@
+/* === RESET GLOBAL === */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* === VARIABLES PRINCIPALES === */
+:root {
+  --primary-color: #3b6b4c; /* Verde bosque oscuro */
+  --secondary-color: #a7d7a4; /* Verde pastel */
+  --text-color: #2e2e2e;
+  --background-color: #f0f9f0; /* Verde muy claro */
+  --font-main: 'Inter', sans-serif;
+  --panel-bg-color: #ffffff;
+  --panel-border-color: #e0e0e0;
+  --panel-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  --panel-radius: 12px;
+  --highlight-color: #4CAF50;
+
+  /* Sugerencias */
+  --font-size-base: 1rem;
+  --font-size-small: 0.85rem;
+  --gap-small: 0.3rem;
+  --gap-medium: 0.5rem;
+  --gap-large: 2rem;
+}
+
+/* === ESTILOS GLOBALES === */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  font-size: var(--font-size-base);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+}
+
+body > main {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* === PIE DE PÁGINA === */
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.4rem 1rem;
+  font-size: var(--font-size-small);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  user-select: none;
+}
+
+footer .footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  line-height: 1.2;
+  font-weight: 300;
+}
+
+footer .footer-left {
+  font-weight: 700;
+}
+
+footer .footer-center {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+footer .footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem; /* espacio entre filas */
+  font-weight: 300;
+}
+
+footer .footer-enlaces {
+  display: flex;
+  gap: 1rem; /* espacio horizontal entre enlaces */
+}
+
+footer .footer-enlaces > a {
+  color: white;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+footer .footer-contacto {
+  font-size: 0.85rem;
+  font-weight: 300;
+  user-select: text;
+  color: #eee;
+  text-align: right;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+footer a:hover,
+footer a:focus {
+  text-decoration: underline;
+  outline-offset: 2px;
+  outline-color: var(--highlight-color);
+}
+
+footer .footer-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* espacio entre logo y texto */
+  font-weight: 700;
+}
+
+footer .footer-left img.logo-footer {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  user-select: none;
+  padding: 0 1rem;
+}
+
+.footer-left {
+  padding: 0 1rem;
+}
+
+.footer-right {
+  padding: 0 1rem;
+}
+
+
+/* === TÍTULOS E INTRODUCCIÓN === */
+.h1-title {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+  margin-left: 1rem;
+}
+
+.section-explanation {
+  margin-left: 1rem;
+}
+
+p {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+
+/* === CONTENEDOR MAPA Y HERRAMIENTAS === */
+.map-and-tools {
+  flex: 1 1 auto;          /* que crezca y pueda reducirse */
+  display: flex;
+  background-color: var(--panel-bg-color);
+  border-radius: var(--panel-radius);
+  box-shadow: var(--panel-shadow);
+  border: 1px solid var(--panel-border-color);
+  overflow: hidden;
+  height: auto;            /* quitar el height fijo */
+  max-height: none;
+  margin: 0 0.2rem;
+}
+
+
+/* === SIDEBAR === */
+.sidebar {
+  width: 300px;
+  padding: 10px;
+  background-color: #f8fcf8;
+  border-right: 1px solid var(--panel-border-color);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-size: var(--font-size-small);
+}
+
+.sidebar label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem; /* espacio entre checkbox y texto */
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  font-size: var(--font-size-small);
+}
+
+.sidebar h1.sidebar-title {
+  margin: 0 0 8px 0;
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.sidebar h2 {
+  font-size: var(--font-size-small);
+  margin: 8px 0 0;
+  color: var(--primary-color);
+}
+
+.sidebar h3 {
+  font-size: 0.8rem;
+  margin: 2px 0 6px;
+  color: var(--primary-color);
+  font-style: italic;
+}
+
+.sidebar select,
+.sidebar button,
+.sidebar input[type="file"] {
+  font-size: var(--font-size-small);
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--panel-border-color);
+  border-radius: 4px;
+  transition: box-shadow 0.3s ease;
+}
+
+.sidebar select:focus,
+.sidebar button:focus,
+.sidebar input[type="file"]:focus {
+  outline: 2px solid var(--highlight-color);
+  outline-offset: 2px;
+  box-shadow: 0 0 5px var(--highlight-color);
+}
+
+/* === SEPARADORES === */
+.sidebar hr {
+  margin: var(--gap-medium) 0;
+}
+
+/* === GRUPOS HORIZONTALES DE SELECTORES Y BOTONES === */
+.grupo-selectores.fila {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-medium);
+  margin-bottom: var(--gap-medium);
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.selector-capa {
+  flex: 1 1 48%;
+  display: flex;
+  flex-direction: column;
+  min-width: 140px;
+}
+
+.selector-capa label {
+  font-size: var(--font-size-small);
+  margin-bottom: 0.2rem;
+  color: var(--text-color);
+}
+
+.selector-capa select {
+  width: 100%;
+}
+
+/* Botones en grupos (medición, dibujo, acciones) */
+.grupo-medicion,
+.grupo-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-medium);
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--gap-medium);
+}
+
+.grupo-medicion button,
+.grupo-acciones button,
+.grupo-acciones select {
+  flex: 1 1 30%;
+  padding: 0.3rem 0.5rem;
+  font-size: var(--font-size-small);
+  line-height: 1;
+  border: 1px solid var(--panel-border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  min-width: 0;
+  background-color: white;
+}
+
+.grupo-medicion button:hover,
+.grupo-acciones button:hover {
+  background-color: var(--secondary-color);
+}
+
+.grupo-medicion button.activo,
+.grupo-acciones button.activo {
+  background-color: var(--highlight-color);
+  color: white;
+}
+
+/* Ajustes específicos para el grupo dibujo */
+.grupo-dibujo {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center; /* Centrado horizontal */
+  flex-wrap: nowrap; /* Mantener en una fila */
+  margin-bottom: var(--gap-medium);
+}
+
+.grupo-dibujo button {
+  flex: none; /* No crecer ni reducirse */
+  min-width: 60px; /* ancho mínimo uniforme */
+  padding: 0.3rem 0.5rem;
+  font-size: var(--font-size-small);
+  line-height: 1;
+  border: 1px solid var(--panel-border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: white;
+  transition: background-color 0.2s ease;
+}
+
+.grupo-dibujo button:hover {
+  background-color: var(--secondary-color);
+}
+
+.grupo-dibujo button.activo {
+  background-color: var(--highlight-color);
+  color: white;
+}
+
+/* Ajuste para el botón de polígono */
+#btn-draw-polygon {
+  min-width: 80px; /* un poco más ancho que los otros */
+}
+
+/* === BUSCADOR === */
+.buscador {
+  display: flex;
+  gap: var(--gap-small);
+  margin-bottom: var(--gap-medium);
+}
+
+#search-input {
+  flex: 1;
+  padding: 0.3rem;
+  font-size: 0.9rem;
+  border: 1px solid var(--panel-border-color);
+  border-radius: 4px;
+}
+
+#search-btn {
+  padding: 0.3rem 0.6rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+#search-btn:hover,
+#search-btn:focus {
+  background-color: #2d593d;
+  outline: none;
+}
+
+/* === CAJA COLAPSABLE DE INTRODUCCIÓN === */
+.intro-box {
+  background-color: #f5fdf5;
+  border: 1px solid #cce0cc;
+  border-radius: 8px;
+  margin: 0.2rem 0.2rem;
+  padding: 0.3rem 0.8rem;
+  font-size: var(--font-size-small);
+  box-shadow: var(--panel-shadow);
+}
+
+.intro-box summary {
+  font-weight: 600;
+  cursor: pointer;
+  padding: 5px 4px;
+  user-select: none;
+  line-height: 1.1;
+  color: var(--primary-color);
+  outline-offset: 2px;
+}
+
+.intro-box summary:focus {
+  outline: 2px solid var(--highlight-color);
+}
+
+.intro-box[open] summary {
+  margin-bottom: 4px;
+}
+
+.intro-box .intro-content {
+  padding-left: 10px;
+  font-size: var(--font-size-small);
+  line-height: 1.3;
+}
+
+/* === MAPA === */
+.map {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+/* === POPUP === */
+.ol-popup {
+  position: absolute;
+  background-color: white;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: var(--panel-shadow);
+  min-width: 250px;
+  font-size: 0.9rem;
+  z-index: 1000;
+}
+
+.ol-popup::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+}
+
+.popup-content {
+  position: relative;
+  padding: 0.6rem 0.8rem;
+}
+
+.popup-close {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #ff0000;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.popup-close:hover,
+.popup-close:focus {
+  color: var(--highlight-color);
+  outline: none;
+  outline-offset: 2px;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 960px) {
+  .map-and-tools {
+    flex-direction: column;
+    height: auto;
+  }
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--panel-border-color);
+  }
+  .map {
+    min-height: 500px;
+  }
+}
+
+/* Opcional: para móviles más pequeños */
+@media (max-width: 480px) {
+  .logo img {
+    height: 36px;
+  }
+  .nav-center {
+    gap: 1rem;
+  }
+  .sidebar {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+  .grupo-medicion button,
+  .grupo-dibujo button,
+  .grupo-acciones button {
+    flex: 1 1 45%;
+    font-size: 0.8rem;
+  }
+  #search-btn {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
