@@ -1,4 +1,3 @@
-console.log("Cargando script.js...");
 const capasCargadas = []
 
 // === 1. Declarar capas base modernas e históricas ===
